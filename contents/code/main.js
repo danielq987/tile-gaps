@@ -89,40 +89,8 @@ function onAdded(client) {
 
 // trigger applying tile gaps when client is moved or resized
 function onRegeometrized(client) {
-    client.moveResizedChanged.connect((client) => {
-        debug("move resized changed", caption(client));
-        applyGaps(client);
-    });
-    client.frameGeometryChanged.connect((client) => {
-        debug("frame geometry changed", caption(client));
-        applyGaps(client)
-    });
-    client.clientFinishUserMovedResized.connect((client) => {
-        debug("finish user moved resized", caption(client));
-        applyGaps(client);
-    });
-    client.fullScreenChanged.connect((client) => {
-        debug("fullscreen changed", caption(client));
-        applyGaps(client);
-    });
-    client.clientMaximizedStateChanged.connect((client) => {
-        debug("maximized changed", caption(client));
-        applyGaps(client);
-    });
-    client.clientUnminimized.connect((client) => {
-        debug("unminimized", caption(client));
-        applyGaps(client);
-    });
-    client.screenChanged.connect((client) => {
-        debug("screen changed", caption(client));
-        applyGaps(client);
-    });
-    client.desktopChanged.connect((client) => {
-        debug("desktop changed", caption(client));
-        applyGaps(client);
-    });
-    client.activitiesChanged.connect((client) => {
-        debug("activities changed", caption(client));
+    client.tileChanged.connect((client) => {
+        debug("tile changed", caption(client));
         applyGaps(client);
     });
 }
